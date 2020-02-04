@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.92 27.23">
+  <defs>
+    <style>
+      .a {
+        fill: none;
+        stroke: #666;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <title>mail</title>
+  <g>
+    <rect class="a" x="1.5" y="1.5" width="34.92" height="24.23" rx="5"/>
+    <polyline class="a" points="1.96 5.77 18.96 15.38 35.96 5.77"/>
+  </g>
+</svg>
