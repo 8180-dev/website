@@ -1,0 +1,67 @@
+@keyframes _flash {
+  0% {
+    opacity: 0.8;
+  }
+  //
+  50% {
+    opacity: 0;
+  }
+  //
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0) skew(0) scaleX(-1)
+  }
+
+  20% {
+    transform: translate(-5px, 5px) skew(2deg) scaleX(-1)
+  }
+
+  40% {
+    transform: translate(-5px, -5px) skew(-2deg) scaleX(-1)
+  }
+
+  60% {
+    transform: translate(5px, 5px) skew(2deg) scaleX(-1)
+  }
+
+  80% {
+    transform: translate(5px, -5px) skew(-2deg) scaleX(-1)
+  }
+
+  100% {
+    transform: translate(0) scaleX(-1) skew(0)
+  }
+}
+
+@mixin image-revert() {
+  visibility: hidden;
+  filter: grayscale(100%) contrast(120%) invert(100%);
+  mix-blend-mode: overlay;
+  will-change: transform;
+  // opacity: 0;
+  // transition: opacity 1s $easeFadeIn;
+  // transform: scaleX(-1);
+}
+
+@mixin image-revert-hover() {
+  visibility: visible;
+  opacity: 0.8;
+  animation: glitch 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both 2, _flash 0.02s 5;
+  //
+  .is-edge & {
+    opacity: 0.2;
+  }
+  //
+  .is-ie & {
+    opacity: 0.2;
+  }
+}
+
+@mixin flash-infinite() {
+  animation: _flash infinite 0.01s;
+}

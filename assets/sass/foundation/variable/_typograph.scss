@@ -1,0 +1,56 @@
+// =========================================================
+//
+// typograph
+//
+// =========================================================//
+//
+
+//
+// ---------------------------------------------------------
+// site base typo parameter
+// ---------------------------------------------------------
+//
+$base-fontsize: 10px !default;
+$base-fontweight: 400 !default;
+$base-line-height: 1.75 !default;
+//
+//
+// ---------------------------------------------------------
+// text color
+// ---------------------------------------------------------
+//
+$text-color: $color-black !default;
+$text-link-color: $color-black !default;
+//$text-primary-color: $black !default;
+//$text-secondary-color: #878788 !default;
+//
+//
+//
+// ---------------------------------------------------------
+// font set
+// ---------------------------------------------------------
+//
+$font-serif: 游明朝, YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', HG明朝E, 'MS P明朝', 'MS 明朝', Georgia, "Times New Roman", Times, serif !default;
+//
+$font-sans-serif-hiragino: 'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", MyYuGothicM, YuGothic, メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif !default;
+//
+$font-sans-serif-yu: 'Montserrat', "Helvetica Neue", Helvetica, Arial, 'Noto Sans JP', YuGothic, "Yu Gothic", 游ゴシック体, 游ゴシック, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "MS ゴシック", "MS Gothic", sans-serif !default;
+//
+$font-sans-serif: $font-sans-serif-hiragino;
+//
+$font-mono: 'Source Code Pro', monospace !default;
+//
+$font-tsukushi: 'Tsukushi A Round Gothic', '筑紫A丸ゴシック', "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN", -apple-system, BlinkMacSystemFont, Meiryo, メイリオ !default;
+//
+$font-ie: "Helvetica", Meiryo, sans-serif !default;
+
+
+$font-plus: 'M PLUS Rounded 1c', sans-serif;
+$font-weight-plus-thin: 100;
+$font-weight-plus-light: 300;
+$font-weight-plus-regular: 400; // active
+$font-weight-plus-medium: 500;
+$font-weight-plus-bold: 700; // active
+$font-weight-plus-e-bold: 800; // active
+$font-weight-plus-black: 800;
+
