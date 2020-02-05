@@ -23,12 +23,15 @@ export default {
 .wrapper {
   position: relative;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  padding-bottom: 120px;
   overflow-x: hidden;
+  //
+  @include desktop {
+    padding-bottom: 200px;
+  }
   // backface-visibility: hidden;
   // transition: transform 1s $easeOutCirc;
   // will-change: transform;
@@ -39,6 +42,16 @@ export default {
   //
   &.is-open {
     //
+  }
+  //
+  &.page-works {
+    padding-top: 135px;
+    padding-right: 3.33vw;
+    padding-left: 3.33vw;
+    //
+    @include desktop {
+      padding-top: 220px;
+    }
   }
 }
 </style>
