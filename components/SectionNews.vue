@@ -46,11 +46,9 @@ export default {
 <style lang="scss" scoped>
 .section-news {
   padding-top: 90px;
-  padding-bottom: 120px;
   //
   @include desktop {
     padding-top: 200px;
-    padding-bottom: 200px;
   }
 }
 
@@ -63,7 +61,7 @@ export default {
   margin-bottom: 50px;
   //
   @include desktop {
-    margin-bottom: 100px;
+    margin-bottom: 75px;
   }
 }
 
@@ -84,6 +82,7 @@ export default {
 .sn__twitter {
   padding: 15px;
   font-size: 1.2rem;
+  font-weight: $font-weight-plus-bold;
   //
   @include desktop {
     padding: 20px 25px 25px;
