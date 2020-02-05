@@ -35,7 +35,7 @@ export default {
   justify-content: center;
   width: $circle-size-s;
   height: $circle-size-s;
-  border: 0.5px solid $color-gray-level2;
+  border: 1px solid $color-gray-level2;
   border-radius: 50%;
 }
 
