@@ -24,7 +24,7 @@ export default {
   height: $circle-size-s;
   font-weight: $font-weight-plus-e-bold;
   color: $color-white;
-  border: 0.5px solid $color-gray-level2;
+  border: 1px solid $color-gray-level2;
   border-radius: 50%;
   //
   @include desktop {
