@@ -60,16 +60,17 @@ export default {
 
 .wc__caption {
   min-height: 140px;
-  padding: 40px 25px 0;
+  padding: 35px 25px 0;
   text-align: left;
 }
 
 .wc__title {
   font-size: 1.4rem;
+  line-height: 1.5;
   color: $color-white;
   //
   @include desktop {
-    //
+    font-size: 1.6rem;
   }
 }
 
@@ -77,6 +78,10 @@ export default {
   margin-top: 10px;
   font-size: 1.2rem;
   color: $color-gray-level2;
+  //
+  @include desktop {
+    //
+  }
 }
 
 .wc__more {
