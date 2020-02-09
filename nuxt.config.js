@@ -53,6 +53,7 @@ module.exports = {
     '~plugins/vue-lazyload.client.js',
     '~plugins/console.js',
     '~plugins/vue-swiper.client.js',
+    '~plugins/vue-youtube.client.js',
     '~plugins/routerOption.js',
   ],
 
