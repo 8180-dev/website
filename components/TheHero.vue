@@ -140,6 +140,10 @@ export default {
     font-size: 1.2rem;
   }
   //
+  @include fullhd {
+    font-size: 1.6rem;
+  }
+  //
   &--news {
     position: relative;
     //
@@ -167,14 +171,6 @@ export default {
       top: calc(50% - #{$circle-size-l} / 2);
     }
   }
-}
-
-.hero-button {
-  //
-}
-
-.hb__inner {
-  //
 }
 
 .th__button-line {
