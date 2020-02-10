@@ -22,28 +22,42 @@ module.exports = {
         '/posts/:id': 'posts',
       },
     },
+    works: {
+      get: {
+        '/works': 'works',
+        '/works/:id': 'works',
+      },
+      post: {
+        '/works': 'works',
+      },
+      put: {
+        '/works/:id': 'works',
+      },
+      delete: {
+        '/works/:id': 'works',
+      },
+    },
   },
   map: {
     post: {
       base: '',
       props: {
-        title: 'title',
-        type: 'type',
-        link: 'link',
+        id: 'id',
+        slug: 'slug',
+        title: 'title.rendered',
         date: 'date',
-        image: 'featured_image',
-        terms: {
-          extends: 'terms',
-          // base: 'terms.magazine_linkage',
-          // base: 'terms.wired_category', - sample
-          base: 'terms.magazine_linkage',
-          props: {},
-        },
-        category: {
-          extends: 'terms',
-          base: 'terms.category',
-          props: {},
-        },
+        acf: 'date',
+        content: 'content.rendered',
+      },
+    },
+    works: {
+      base: '',
+      props: {
+        id: 'id',
+        slug: 'slug',
+        title: 'title.rendered',
+        date: 'date',
+        acf: 'acf',
       },
     },
     page: {

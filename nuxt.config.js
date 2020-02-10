@@ -1,9 +1,7 @@
 // import { UnusedFilesWebpackPlugin } from 'unused-files-webpack-plugin'
 const path = require('path')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-
-const apiEnv = process.env.NODE_API ? `${process.env.NODE_API}.` : ''
-const apiUrl = `https://${apiEnv}wired.jp/wp-json/`
+const apiUrl = `https://wp.8180.co.jp/wp-json/wp/v2/`
 
 module.exports = {
   mode: 'universal',
@@ -94,6 +92,12 @@ module.exports = {
             dimension12: 'vol34-narrative-and-deployment',
           },
         },
+      },
+    ],
+    [
+      'nuxt-gmaps',
+      {
+        key: 'AIzaSyC3mdrrwEsofIWAjitYYJT9evPoiqNx528',
       },
     ],
   ],
