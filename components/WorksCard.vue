@@ -1,15 +1,12 @@
 <template>
   <div class="works-card">
     <div class="wc__figure-wrap">
-      <figure
-        v-lazy:background-image="require('Images/dummy/thumb.jpg')"
-        class="wc__figure"
-      />
+      <figure v-lazy:background-image="getImage" class="wc__figure" />
     </div>
 
     <div class="wc__caption">
-      <h3 class="wc__title" v-text="meta.title"></h3>
-      <div class="wc__time" v-text="meta.time"></div>
+      <h3 class="wc__title" v-text="meta && meta.title"></h3>
+      <div class="wc__time" v-text="meta && meta.date"></div>
     </div>
 
     <div class="wc__more">
@@ -27,10 +24,27 @@ import TheArrow from '~/components/TheArrow'
 export default {
   name: 'WorksCard',
   components: { TheArrow },
+
   props: {
     meta: {
       type: Object,
       default: () => {},
+    },
+  },
+
+  computed: {
+    getImage() {
+      if (
+        this.meta &&
+        this.meta.acf &&
+        this.meta.acf.images &&
+        this.meta.acf.images[0] &&
+        this.meta.acf.images[0].image
+      ) {
+        return this.meta.acf.images[0].image
+      } else {
+        return { height: 0, width: 0 }
+      }
     },
   },
 }

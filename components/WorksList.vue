@@ -2,11 +2,19 @@
   <div class="works-list">
     <ul class="wl__items">
       <li
-        v-for="(item, index) in list"
+        v-for="(item, index) in $store.getters['post/getPosts']"
         :key="`wl__item${index}`"
         class="wl__item"
       >
-        <a class="wl__target" href="#">
+        <a
+          class="wl__target"
+          href="#"
+          :data-link="item.id"
+          @click.prevent="
+            $store.dispatch('setModalName', item.id) &&
+              $store.dispatch('setModalOpen', true)
+          "
+        >
           <WorksCard :meta="item" />
         </a>
       </li>
@@ -20,6 +28,7 @@ import WorksCard from '~/components/WorksCard'
 export default {
   name: 'WorksList',
   components: { WorksCard },
+
   props: {
     list: {
       type: Array,
