@@ -27,6 +27,10 @@
       <FootMail />
     </div>
 
+    <div class="ld__modal">
+      <TheModal />
+    </div>
+
     <client-only>
       <Debug v-if="isDebug" />
     </client-only>
@@ -37,6 +41,7 @@
 import Debug from '~/components/Debug'
 import TheHeader from '~/components/TheHeader'
 import FootMail from '~/components/FootMail'
+import TheModal from '~/components/TheModal'
 
 import data from '~/assets/js/data'
 
@@ -45,6 +50,7 @@ export default {
     Debug,
     TheHeader,
     FootMail,
+    TheModal,
   },
   data() {
     return {
@@ -92,6 +98,10 @@ export default {
 
 .ld__head {
   z-index: $z-header;
+}
+
+.ld__modal {
+  pointer-events: none;
 }
 </style>
 
