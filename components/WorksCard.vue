@@ -6,7 +6,7 @@
 
     <div class="wc__caption">
       <h3 class="wc__title" v-text="meta && meta.title"></h3>
-      <div class="wc__time" v-text="meta && meta.date"></div>
+      <div class="wc__time" v-text="getDate(meta && meta.date)"></div>
     </div>
 
     <div class="wc__more">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 import TheArrow from '~/components/TheArrow'
 
 export default {
@@ -46,6 +47,10 @@ export default {
         return { height: 0, width: 0 }
       }
     },
+  },
+
+  methods: {
+    getDate: date => dayjs(date).format('YYYY MM'),
   },
 }
 </script>
