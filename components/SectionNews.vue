@@ -7,14 +7,14 @@
 
       <div class="sn__box">
         <div class="sn__twitter">
-          <a href="">@8180_Inc</a>
+          <a href="https://twitter.com/8180_Inc" target="_blank">@8180_Inc</a>
         </div>
         <ul class="sn__items">
           <li
             v-for="(item, index) in list"
             :key="`sn__item${index}`"
             class="sn__item"
-            v-html="item"
+            v-html="item.content"
           ></li>
         </ul>
       </div>
@@ -23,22 +23,27 @@
 </template>
 
 <script>
+import axios from 'axios'
 import TitleLevel1 from '~/components/TitleLevel1'
 
 export default {
   name: 'SectionNews',
   components: { TitleLevel1 },
+
   data() {
     return {
-      list: [
-        '&aaa &aaa &aaa &aaa',
-        'adfsadfa adfsadfa adfsadfa adfsadfa',
-        'ashdfjska ashdfjska ashdfjska ashdfjska',
-        '&aaa &aaa &aaa &aaa',
-        'adfsadfa adfsadfa adfsadfa adfsadfa',
-        'ashdfjska ashdfjska ashdfjska ashdfjska',
-      ],
+      list: [],
     }
+  },
+
+  mounted() {
+    this.$nextTick(async () => {
+      const { data } = await axios.get(
+        'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ftwitrss.me%2Ftwitter_user_to_rss%2F?user=8180_Inc',
+      )
+      this.list = data.items
+      console.log(this.list)
+    })
   },
 }
 </script>
@@ -106,6 +111,24 @@ export default {
   //
   + .sn__item {
     border-top: 1px solid $color-black;
+  }
+  //
+  /deep/ .u-hidden {
+    display: none;
+  }
+  //
+  /deep/ img {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 15px;
+  }
+  //
+  /deep/ .Emoji {
+    width: 12px;
+    margin-top: 0;
+    margin-right: 2px;
+    margin-left: 2px;
+    vertical-align: middle;
   }
 }
 </style>

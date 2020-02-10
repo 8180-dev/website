@@ -1,7 +1,7 @@
 <template>
   <Wrapper class="page-home">
     <TheHero />
-    <SectionNews />
+    <SectionNews v-if="$store.getters.getPageReady" />
   </Wrapper>
 </template>
 
@@ -12,7 +12,6 @@
 <script>
 import Wrapper from '~/components/Wrapper'
 import TheHero from '~/components/TheHero'
-import SectionNews from '~/components/SectionNews'
 
 import HeadMixin from '~/mixins/Head'
 
@@ -20,7 +19,7 @@ export default {
   components: {
     Wrapper,
     TheHero,
-    SectionNews,
+    SectionNews: () => import('~/components/SectionNews'),
   },
 
   mixins: [HeadMixin],
@@ -37,6 +36,8 @@ export default {
   },
 
   mounted() {
+    this.$store.dispatch('setModalOpen', false)
+    //
     this.$nextTick(() => {
       this.$store.dispatch('setPageReady', true)
     })
