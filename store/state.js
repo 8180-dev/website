@@ -9,7 +9,8 @@ export default () => {
 
     menuOpen: false,
 
-    modalName: '',
+    modalName: 0,
+    modalOpen: false,
 
     postReady: false, // 0
     pageReady: false, // 1

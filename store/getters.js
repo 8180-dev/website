@@ -2,6 +2,7 @@ export default {
   getMenuOpen: state => state.menuOpen,
 
   getModalName: state => state.modalName,
+  getModalOpen: state => state.modalOpen,
 
   getPageHeight: state => state.pageData.winH,
   getPageWidth: state => state.pageData.winW,

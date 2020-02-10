@@ -15,6 +15,10 @@ export default {
   setModalName({ commit }, value) {
     commit('modalName', value)
   },
+  setModalOpen({ commit }, value) {
+    commit('modalOpen', value)
+    !value && commit('modalName', 0)
+  },
 
   setPostReady({ commit }, value) {
     commit('postReady', value)

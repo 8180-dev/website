@@ -11,6 +11,9 @@ export default {
   modalName(state, data) {
     state.modalName = data
   },
+  modalOpen(state, data) {
+    state.modalOpen = data
+  },
   postReady(state, data) {
     state.postReady = data
   },
