@@ -62,7 +62,7 @@ export default {
 .modal-nav {
   padding-top: 50px;
   padding-bottom: 50px;
-  border-top: 1px solid $color-black;
+  border-top: 2px solid $color-black;
   //
   @include touch {
     padding-right: $section-gutter-mobile;
