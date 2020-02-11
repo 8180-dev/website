@@ -1,4 +1,4 @@
-import EventManager from '../eventManager'
+import EventManager from '../EventManager'
 import selfPosition from './selfPosition'
 
 class parallax {

@@ -1,4 +1,4 @@
-class eventManager {
+export class EventManager {
   /**
    * add event listener
    * create remover list
@@ -45,4 +45,4 @@ class eventManager {
   }
 }
 
-export default eventManager
+export default EventManager
