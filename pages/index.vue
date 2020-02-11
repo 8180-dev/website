@@ -14,6 +14,7 @@ import Wrapper from '~/components/Wrapper'
 import TheHero from '~/components/TheHero'
 
 import HeadMixin from '~/mixins/Head'
+import FetchWorks from '~/mixins/FetchWorks'
 
 export default {
   components: {
@@ -22,7 +23,7 @@ export default {
     SectionNews: () => import('~/components/SectionNews'),
   },
 
-  mixins: [HeadMixin],
+  mixins: [HeadMixin, FetchWorks],
 
   data() {
     return {

@@ -13,6 +13,7 @@ import TitleLevel1 from '~/components/TitleLevel1'
 import WorksList from '~/components/WorksList'
 
 import HeadMixin from '~/mixins/Head'
+import FetchWorks from '~/mixins/FetchWorks'
 
 import PostList from '~/assets/json/post.json'
 
@@ -23,7 +24,7 @@ export default {
     Wrapper,
   },
 
-  mixins: [HeadMixin],
+  mixins: [HeadMixin, FetchWorks],
 
   data() {
     return {
@@ -34,24 +35,6 @@ export default {
 
   computed: {
     //
-  },
-
-  async fetch({ app, store }) {
-    const query = {
-      // type: 'works',
-      //      custom_per_page: 1,
-      //      _embed: 1,
-    }
-    if (store.getters['post/getPosts'][0]) {
-      return false
-    } else {
-      const { data } = await app.$api.get(`/works`, query)
-      store.dispatch('post/setPosts', data)
-      store.dispatch('setPostReady', true)
-
-      console.log('🙏🏻 get 8180 works data +', data.length)
-      console.log('🙏🏻 get 8180 works data +', data[0])
-    }
   },
 
   mounted() {
