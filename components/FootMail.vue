@@ -36,7 +36,6 @@ export default {
   bottom: 30px;
   left: $section-gutter-mobile;
   z-index: $z-footer-mail;
-  box-shadow: 0 0 50px rgba($color-black-dark, 0.8);
   //
   @include touch {
     right: $section-gutter-mobile;
@@ -61,6 +60,7 @@ export default {
   padding-left: 20px;
   background-color: $color-black;
   border-radius: 10px;
+  box-shadow: 0 0 50px rgba($color-black-dark, 0.6);
   //
   @include desktop {
     width: calc(100vw / 9 * 4 - #{$section-gutter-desktop} * 2);
