@@ -1,11 +1,9 @@
 <template>
   <div class="the-hero">
-    <div class="th__bg">
-      <div class="hero-bg"></div>
-    </div>
+    <div ref="bg" class="th__bg" />
 
-    <div class="th__line"></div>
-    <div class="th__overlay"></div>
+    <div class="th__line" />
+    <div class="th__overlay" />
 
     <div class="th__logo">
       <HeroLogo />
@@ -15,7 +13,7 @@
       <n-link to="/works/">
         <HeroButton :text="`作品 <br> アーカイブ`" />
       </n-link>
-      <div class="th__button-line th__button-line--archive"></div>
+      <div class="th__button-line th__button-line--archive" />
     </mq-layout>
 
     <div class="th__bottom">
@@ -24,16 +22,19 @@
       </div>
 
       <div class="th__button th__button--news">
-        <a href="#">
+        <a v-scroll-to="`#news`" href="#">
           <HeroButton :text="`ニュース`" />
         </a>
-        <div class="th__button-line th__button-line--news"></div>
+        <div class="th__button-line th__button-line--news" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import DistortionSlider from 'Js/DistortionSlider'
+// import { LoadImages } from 'Js/ImagesLoaded'
+import { pause } from 'Js/animation'
 import HeroLogo from '~/components/HeroLogo'
 import HeroButton from '~/components/HeroButton'
 import HeroTitle from '~/components/HeroTitle'
@@ -49,12 +50,21 @@ export default {
 
   data() {
     return {
-      //
+      current: 0,
+      DistortionSlider: null,
     }
   },
 
   computed: {
-    //
+    posts() {
+      return this.$store.getters['post/getPostsHero']
+    },
+  },
+
+  watch: {
+    posts(vol) {
+      console.log(vol)
+    },
   },
 
   created() {
@@ -63,12 +73,67 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
+      // this.initSlider()
+      // http://wp.8180.co.jp/wp/wp-content/uploads/2020/02/BST_1.jpg
+      /**
+       * @type {HTMLImageElement}
+       */
+      //      const imagesPath = this.posts.map(post => post.acf.images[0].image)
+      //      const images = await LoadImages(imagesPath)
+      //      console.log({ images })
+      //      const imagesBase = images.map(img => {
+      //        img.crossOrigin = 'Anonymous'
       //
+      //        const canvas = document.createElement('canvas')
+      //        const ctx = canvas.getContext('2d')
+      //
+      //        canvas.height = img.naturalHeight
+      //        canvas.width = img.naturalWidth
+      //        ctx.drawImage(img, 0, 0)
+      //
+      //        canvas.toDataURL()
+      //
+      //        return canvas
+      //      })
+      //      console.log({ imagesBase })
+      this.initSlider()
     })
   },
 
   methods: {
-    //
+    async initSlider() {
+      const { bg } = this.$refs
+      const images = [
+        require('Images/dummy/1.jpg'),
+        require('Images/dummy/2.jpg'),
+        require('Images/dummy/3.jpg'),
+      ]
+      const texture = require('Images/texture/02.jpg')
+      const deep = 0.5
+      const speed = 2.5
+      const current = 0
+      const transitionEnd = this.updateCount.bind(this)
+
+      // これで レスポンスの画像の最初の1枚を抽出して選びとる
+      // const imagesPath = this.posts.map(post => post.acf.images[0].image)
+      // const images = await LoadImages(imagesPath)
+      console.log(images)
+
+      this.DistortionSlider = new DistortionSlider({
+        target: bg,
+        images,
+        texture,
+        deep,
+        speed,
+        current,
+        transitionEnd,
+      })
+      await pause(1)
+      this.DistortionSlider.start()
+    },
+    updateCount(val) {
+      this.current = val
+    },
   },
 }
 </script>
@@ -84,11 +149,9 @@ export default {
 }
 
 .th__bg {
+  z-index: 1;
   //
-}
-
-.hero-bg {
-  //
+  @include overlay;
 }
 
 .th__line {
@@ -110,8 +173,8 @@ export default {
 .th__overlay {
   z-index: 5;
   background-color: $color-black-dark;
-  mix-blend-mode: multiply;
-  opacity: 0.5;
+  // mix-blend-mode: multiply;
+  opacity: 0.35;
   //
   @include overlay;
 }

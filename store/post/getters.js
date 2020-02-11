@@ -22,5 +22,5 @@ export default {
     }
   },
 
-  getPosts1: state => [...state.posts].slice(0, 6),
+  getPostsHero: state => [...state.posts].slice(0, 5),
 }
