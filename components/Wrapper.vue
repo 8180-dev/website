@@ -53,5 +53,23 @@ export default {
       padding-top: 220px;
     }
   }
+  //
+  &.page-access {
+    padding-top: 135px;
+    padding-right: $section-gutter-mobile;
+    padding-left: $section-gutter-mobile;
+    //
+    @include desktop {
+      padding-top: 220px;
+    }
+  }
+  //
+  &.page-company {
+    padding-top: 135px;
+    //
+    @include desktop {
+      padding-top: 220px;
+    }
+  }
 }
 </style>
