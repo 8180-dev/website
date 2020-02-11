@@ -1,5 +1,5 @@
 <template>
-  <section class="section-news">
+  <section id="news" class="section-news">
     <div class="sn__inner">
       <div class="sn__title">
         <TitleLevel1 :variation="`news`" />
