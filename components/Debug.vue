@@ -60,6 +60,7 @@ export default {
   padding-left: 15px;
   font-weight: bold;
   color: $color-blue;
+  white-space: nowrap;
   background-color: rgba($color-white, 0.5);
   //
   @include tablet {
