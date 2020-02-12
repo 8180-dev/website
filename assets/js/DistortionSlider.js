@@ -1,7 +1,7 @@
 import * as THREE from 'three'
-
 import gsap from 'gsap'
 
+import { disposeThreeObjects } from 'Js/DisposeThreeObjects'
 import vertex from '~/assets/glsl/ListSp.vs'
 import fragment from '~/assets/glsl/ListSp.fs'
 
@@ -243,7 +243,7 @@ export class DistortionSlider {
           this.changeTexture('prev')
           this.state.animating = false
           //
-          console.log('🖼 transitionPrev end')
+          //          console.log('🖼 transitionPrev end')
         },
       })
     }
@@ -271,14 +271,14 @@ export class DistortionSlider {
           this.changeTexture('next')
           this.state.animating = false
           //
-          console.log('🖼 transitionNext end')
+          //          console.log('🖼 transitionNext end')
         },
       })
     }
   }
 
   prevSlide() {
-    console.log('🖼 prevSlide start')
+    //    console.log('🖼 prevSlide start')
     //
     if (this.state.animating) return
 
@@ -299,7 +299,7 @@ export class DistortionSlider {
   }
 
   nextSlide() {
-    console.log('🖼 nextSlide start')
+    //    console.log('🖼 nextSlide start')
     //
     if (this.state.animating) return
 
@@ -390,6 +390,9 @@ export class DistortionSlider {
     this.render()
   }
 
+  /**
+   * animation start
+   */
   start() {
     this.listeners()
     this.update()
@@ -397,7 +400,7 @@ export class DistortionSlider {
   }
 
   /**
-   *
+   * destroy this object
    */
   destroy() {
     this.animId && cancelAnimationFrame(this.animId)
@@ -406,8 +409,7 @@ export class DistortionSlider {
     this.eventList.forEach(event => event.destroy())
 
     this.mesh && this.scene && this.scene.remove(this.mesh)
-    this.geometry && this.geometry.dispose()
-    this.material && this.material.dispose()
+    disposeThreeObjects(this.scene, this.renderer)
   }
 }
 
