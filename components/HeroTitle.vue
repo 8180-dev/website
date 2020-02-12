@@ -39,7 +39,7 @@ export default {
   padding-bottom: 0.5em;
   padding-left: 1.2em;
   font-size: 0.8rem;
-  border: 0.5px solid $color-gray-level2;
+  border: 1px solid $color-gray-level2;
   border-radius: 10px / 50%;
   //
   @include desktop {
