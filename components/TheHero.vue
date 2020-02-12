@@ -246,7 +246,7 @@ export default {
     top: 100%;
     left: calc(50% - 0.5px / 2);
     width: 0.5px;
-    height: calc(var(--vh, 1vh) * 115 / 1345 * 100);
+    height: 20px;
     //
     @include desktop {
       width: 1px;
@@ -258,7 +258,7 @@ export default {
 .th__bottom {
   position: absolute;
   right: $section-gutter-mobile;
-  bottom: calc(var(--vh, 1vh) * 115 / 1345 * 100);
+  bottom: 20px;
   left: $section-gutter-mobile;
   z-index: 9;
   display: flex;

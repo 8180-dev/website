@@ -1,5 +1,12 @@
 <template>
-  <div class="foot-mail">
+  <div
+    class="foot-mail"
+    :class="[
+      {
+        'is-scroll': scrollY > 100,
+      },
+    ]"
+  >
     <a href="mailto:info@8180.co.jp" target="_blank" class="fm__inner">
       <div class="fm__title">お問い合わせアドレス</div>
       <div class="fm__line" />
@@ -27,18 +34,30 @@
 <script>
 export default {
   name: 'FootMail',
+
+  computed: {
+    /**
+     * @return number
+     */
+    scrollY() {
+      return this.$store.getters.getPageScrollY
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .foot-mail {
   position: fixed;
-  bottom: 30px;
+  bottom: 15px;
   left: $section-gutter-mobile;
   z-index: $z-footer-mail;
   //
   @include touch {
     right: $section-gutter-mobile;
+    opacity: 0;
+    transition: opacity 0.5s $easeInOutSine;
+    will-change: opacity;
   }
   //
   @include desktop {
@@ -48,6 +67,12 @@ export default {
   //
   @include fullhd {
     bottom: calc(100vh / 9 * 1 - 90px / 2);
+  }
+  //
+  &.is-scroll {
+    @include touch {
+      opacity: 1;
+    }
   }
 }
 
@@ -149,7 +174,7 @@ export default {
   //
   .a {
     fill: none;
-    stroke: #666;
+    stroke: $color-gray-level2;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 3px;
