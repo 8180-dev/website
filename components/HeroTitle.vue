@@ -1,7 +1,7 @@
 <template>
   <div class="hero-title">
     <div class="ht__inner">
-      <div class="ht__title">あああああああ</div>
+      <div class="ht__title" v-text="text" />
       <div class="ht__detail">
         クワシク
         <div class="ht__arrow">
@@ -19,6 +19,13 @@ export default {
   name: 'HeroTitle',
 
   components: { TheArrow },
+
+  props: {
+    text: {
+      type: String,
+      default: '',
+    },
+  },
 }
 </script>
 
@@ -30,7 +37,7 @@ export default {
   padding-top: 0.5em;
   padding-right: 1.2em;
   padding-bottom: 0.5em;
-  padding-left: 1.75em;
+  padding-left: 1.2em;
   font-size: 0.8rem;
   border: 0.5px solid $color-gray-level2;
   border-radius: 10px / 50%;
@@ -62,12 +69,18 @@ export default {
 }
 
 .ht__title {
+  padding-right: 1em;
+  overflow: hidden;
   font-weight: $font-weight-plus-e-bold;
   color: $color-white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-feature-settings: 'palt';
 }
 
 .ht__detail {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   font-size: 0.8rem;
   color: $color-gray-level2;

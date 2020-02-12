@@ -18,7 +18,13 @@
 
     <div class="th__bottom">
       <div class="th__title">
-        <HeroTitle />
+        <a
+          :href="`/works/#${ids[current]}`"
+          :data-id="ids[current]"
+          @click.prevent="moveWorksPage(ids[current])"
+        >
+          <HeroTitle :text="titles[current]" />
+        </a>
       </div>
 
       <div class="th__button th__button--news">
@@ -33,7 +39,6 @@
 
 <script>
 import DistortionSlider from 'Js/DistortionSlider'
-// import { LoadImages } from 'Js/ImagesLoaded'
 import { pause } from 'Js/animation'
 import HeroLogo from '~/components/HeroLogo'
 import HeroButton from '~/components/HeroButton'
@@ -59,12 +64,16 @@ export default {
     posts() {
       return this.$store.getters['post/getPostsHero']
     },
+    titles() {
+      return this.posts.map(post => post.title)
+    },
+    ids() {
+      return this.posts.map(post => post.id)
+    },
   },
 
   watch: {
-    posts(vol) {
-      console.log(vol)
-    },
+    //
   },
 
   created() {
@@ -73,31 +82,12 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      // this.initSlider()
-      // http://wp.8180.co.jp/wp/wp-content/uploads/2020/02/BST_1.jpg
-      /**
-       * @type {HTMLImageElement}
-       */
-      //      const imagesPath = this.posts.map(post => post.acf.images[0].image)
-      //      const images = await LoadImages(imagesPath)
-      //      console.log({ images })
-      //      const imagesBase = images.map(img => {
-      //        img.crossOrigin = 'Anonymous'
-      //
-      //        const canvas = document.createElement('canvas')
-      //        const ctx = canvas.getContext('2d')
-      //
-      //        canvas.height = img.naturalHeight
-      //        canvas.width = img.naturalWidth
-      //        ctx.drawImage(img, 0, 0)
-      //
-      //        canvas.toDataURL()
-      //
-      //        return canvas
-      //      })
-      //      console.log({ imagesBase })
       this.initSlider()
     })
+  },
+
+  beforeDestroy() {
+    this.DistortionSlider.destroy()
   },
 
   methods: {
@@ -108,8 +98,8 @@ export default {
         require('Images/dummy/2.jpg'),
         require('Images/dummy/3.jpg'),
       ]
-      const texture = require('Images/texture/02.jpg')
-      const deep = 0.5
+      const texture = require('Images/texture/01.jpg')
+      const deep = 0.1
       const speed = 2.5
       const current = 0
       const transitionEnd = this.updateCount.bind(this)
@@ -117,7 +107,7 @@ export default {
       // これで レスポンスの画像の最初の1枚を抽出して選びとる
       // const imagesPath = this.posts.map(post => post.acf.images[0].image)
       // const images = await LoadImages(imagesPath)
-      console.log(images)
+      //      console.log(images)
 
       this.DistortionSlider = new DistortionSlider({
         target: bg,
@@ -133,6 +123,11 @@ export default {
     },
     updateCount(val) {
       this.current = val
+    },
+    moveWorksPage(name) {
+      this.$store.dispatch('setModalName', name)
+      this.$store.dispatch('setModalOpen', true)
+      this.$router.push(`/works/`)
     },
   },
 }
