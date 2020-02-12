@@ -94,6 +94,12 @@ export default {
 .ld__inner {
   position: relative;
   z-index: 9;
+  opacity: 0;
+  transition: opacity 1s $easeFadeIn;
+  //
+  .layout-default.is-ready & {
+    opacity: 1;
+  }
 }
 
 .ld__head {
