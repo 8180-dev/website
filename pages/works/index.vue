@@ -39,7 +39,8 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      //
+      this.$store.dispatch('setMenuOpen', false)
+      this.$store.dispatch('setPageReady', true)
     })
   },
 

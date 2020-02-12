@@ -44,6 +44,7 @@ export default {
     this.$store.dispatch('setModalOpen', false)
     //
     this.$nextTick(() => {
+      this.$store.dispatch('setMenuOpen', false)
       this.$store.dispatch('setPageReady', true)
     })
   },
