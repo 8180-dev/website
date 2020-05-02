@@ -12,6 +12,7 @@
       },
       $ua.browser(),
       $ua.deviceType(),
+      $store.getters.getPageName,
     ]"
     class="layout-default"
   >
