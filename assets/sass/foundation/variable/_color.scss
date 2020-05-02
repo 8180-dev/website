@@ -15,18 +15,30 @@ $color-pink-dark: #f867b5 !default;
 $color-yellow: #f4d446 !default;
 $color-yellow-dark: #f2cc3b !default;
 
-$color-black-dark: #000 !default;
-$color-black: #0d0d0d !default;
+$color-black-dark: #1e1e1e !default;
+$color-black: #222 !default;
 
 $color-white: #fff !default;
 $color-white-dark: #f3f3f3 !default;
 
 $color-bg-primary: #f7f8f8 !default;
 
-$color-gray-level0: #1a1a1a !default;
-$color-gray-level1: #333 !default;
+$color-gray-level0: #373737 !default;
+$color-gray-level1: lighten(#373737, 10%) !default;
 $color-gray-level2: #999 !default;
 $color-gray-level3: #aaa !default;
 $color-gray-level4: #ccc !default;
 $color-gray-level5: #f7f8f8 !default;
 
+$material-dark-elevation-colors: (
+  '0': #000,
+  '1': #1e1e1e,
+  '2': #222,
+  '3': #252525,
+  '4': #272727,
+  '6': #2c2c2c,
+  '8': #2e2e2e,
+  '12': #333,
+  '16': #363636,
+  '24': #373737
+);
