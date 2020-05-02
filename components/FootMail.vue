@@ -52,6 +52,7 @@ export default {
   bottom: 15px;
   left: $section-gutter-mobile;
   z-index: $z-footer-mail;
+  pointer-events: none;
   //
   @include touch {
     right: $section-gutter-mobile;
@@ -71,6 +72,7 @@ export default {
   //
   &.is-scroll {
     @include touch {
+      pointer-events: auto;
       opacity: 1;
     }
   }
