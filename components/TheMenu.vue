@@ -1,5 +1,14 @@
 <template>
-  <div :class="[{ 'is-open': $store.getters.getMenuOpen }]" class="the-menu">
+  <div
+    :class="[
+      {
+        'is-open': $store.getters.getMenuOpen,
+        'is-scroll':
+          $store.getters.getPageScrollY > $store.getters.getPageHeight * 0.75,
+      },
+    ]"
+    class="the-menu"
+  >
     <div class="tm__inner">
       <ul class="tm__list">
         <li
@@ -72,6 +81,10 @@ export default {
       pointer-events: auto;
       opacity: 1;
     }
+
+    &.is-scroll {
+      //
+    }
   }
   //
   @include desktop {
@@ -136,8 +149,10 @@ export default {
   padding-bottom: 0.8em;
   font-size: 2.5rem;
   font-weight: $font-weight-plus-e-bold;
-  border: 1px solid $color-gray-level2;
+  background-color: rgba($color-black, 0);
+  border: 1px solid rgba($color-gray-level2, 1);
   border-radius: 37.5px / 50%;
+  transition: background-color 0.2s $easeOutSine, border 0.2s $easeOutSine;
   //
   @include desktop {
     width: 105px;
@@ -150,6 +165,18 @@ export default {
     width: 125px;
     font-size: 1.6rem;
     border-radius: 20px / 50%;
+  }
+
+  &.tm__target.tm__target:hover {
+    background-color: lighten($color-black, 5%);
+    transition: background-color 0s;
+  }
+
+  .the-menu.is-scroll & {
+    @include desktop {
+      background-color: rgba($color-black, 1);
+      border-color: rgba($color-gray-level2, 0);
+    }
   }
 }
 </style>
