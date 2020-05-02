@@ -11,11 +11,17 @@
         </div>
         <ul class="sn__items">
           <li
-            v-for="(item, index) in list"
+            v-for="(item, index) in filteredList"
             :key="`sn__item${index}`"
             class="sn__item"
-            v-html="item.content"
-          ></li>
+          >
+            <a class="sn__target" :href="item.link" target="_blank">
+              <time class="sn__time" :datatime="item.pubDate">{{
+                item.pubDate
+              }}</time>
+            </a>
+            <div class="sn__content" v-html="item.content"></div>
+          </li>
         </ul>
       </div>
     </div>
@@ -34,6 +40,12 @@ export default {
     return {
       list: [],
     }
+  },
+
+  computed: {
+    filteredList() {
+      return [...this.list.filter(item => item.author === '(@8180_Inc)')]
+    },
   },
 
   mounted() {
@@ -106,11 +118,37 @@ export default {
   //
   @include desktop {
     padding: 20px 25px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
-  //
+
+  @include fullhd {
+    padding: 40px 48px;
+    font-size: 1.6rem;
+  }
+
   + .sn__item {
     border-top: 1px solid $color-black;
+  }
+}
+
+.sn__time {
+  font-size: 1rem;
+
+  @include desktop {
+    font-size: 1.2rem;
+  }
+}
+
+.sn__content {
+  font-size: 1.2rem;
+  line-height: calc(1em * 35 / 20);
+  //
+  @include desktop {
+    font-size: 1.4rem;
+  }
+
+  @include fullhd {
+    font-size: 1.6rem;
   }
   //
   /deep/ .u-hidden {
@@ -121,6 +159,10 @@ export default {
     width: 100%;
     margin-top: 10px;
     border-radius: 15px;
+
+    @include desktop {
+      margin-top: 20px;
+    }
   }
   //
   /deep/ .Emoji {
