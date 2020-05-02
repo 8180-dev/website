@@ -63,4 +63,17 @@ export default {
     margin-bottom: calc((100vw * 1460 / 1920) * 0.03);
   }
 }
+
+.wl__target {
+  display: block;
+  background-color: $color-black;
+  box-shadow: 0 0 50px rgba(black, 0.2);
+  transition: 0.25s $easeInOutSine;
+  //
+  &:hover {
+    background-color: lighten($color-black, 0.5%);
+    box-shadow: 0 20px 80px rgba($color-black-dark, 0.9);
+    transform: translateY(-5px);
+  }
+}
 </style>

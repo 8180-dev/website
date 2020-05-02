@@ -52,10 +52,10 @@ export default {
   bottom: 15px;
   left: $section-gutter-mobile;
   z-index: $z-footer-mail;
-  pointer-events: none;
   //
   @include touch {
     right: $section-gutter-mobile;
+    pointer-events: none;
     opacity: 0;
     transition: opacity 0.5s $easeInOutSine;
     will-change: opacity;
@@ -87,7 +87,8 @@ export default {
   padding-left: 20px;
   background-color: $color-black;
   border-radius: 10px;
-  box-shadow: 0 0 50px rgba($color-black-dark, 0.6);
+  box-shadow: 0 0 50px rgba(black, 0.2);
+  transition: 0.25s $easeInOutSine;
   //
   @include desktop {
     width: calc(100vw / 9 * 4 - #{$section-gutter-desktop} * 2);
@@ -105,6 +106,10 @@ export default {
     height: 90px;
     padding-right: 35px;
     padding-left: 35px;
+  }
+
+  &:hover {
+    background-color: lighten($color-black, 0.5%);
   }
 }
 

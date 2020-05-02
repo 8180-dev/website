@@ -168,7 +168,7 @@ export default {
   }
 
   &.tm__target.tm__target:hover {
-    background-color: lighten($color-black, 5%);
+    background-color: lighten($color-black, 2.5%);
     transition: background-color 0s;
   }
 

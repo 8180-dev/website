@@ -69,6 +69,10 @@ export default {
     font-size: 1.6rem;
     border-radius: 25px / 50%;
   }
+
+  &:hover {
+    background-color: lighten($color-black, 2.5%);
+  }
 }
 
 .sa__caption {

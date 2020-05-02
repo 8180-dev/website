@@ -37,6 +37,10 @@ export default {
     width: $circle-size-l;
     height: $circle-size-l;
   }
+
+  &:hover {
+    background-color: lighten($color-black, 2.5%);
+  }
 }
 
 .hb__inner {
