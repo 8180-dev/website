@@ -90,7 +90,7 @@ export default {
 
   data() {
     return {
-      isOpen: false,
+      isOpen: true,
     }
   },
 }
@@ -103,7 +103,7 @@ export default {
   overflow: hidden;
   background-color: $color-black;
   border-radius: 15px;
-  box-shadow: 0 0 50px rgba($color-black-dark, 0.8);
+  box-shadow: 0 0 50px rgba(black, 0.2);
   //
   @include desktop {
     width: 400px;
@@ -136,11 +136,7 @@ export default {
   transition: max-height 0.65s $easeOutCubic;
   //
   &.is-open {
-    max-height: 800px;
-    //
-    @include desktop {
-      max-height: 600px;
-    }
+    max-height: 1000px;
   }
 }
 
