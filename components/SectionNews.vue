@@ -62,7 +62,10 @@ export default {
 
 <style lang="scss" scoped>
 .section-news {
+  position: relative;
+  z-index: 2;
   padding-top: 90px;
+  background-color: $color-black;
   //
   @include desktop {
     padding-top: 200px;

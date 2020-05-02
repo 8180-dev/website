@@ -26,11 +26,15 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
   overflow-x: hidden;
   //
   @include desktop {
-    padding-bottom: 200px;
+    padding-bottom: calc((100vh / 9 * 1 - 80px / 2) * 2 + 90px);
+  }
+  //
+  @include widescreen {
+    padding-bottom: calc((100vh / 9 * 1 - 90px / 2) * 2 + 90px);
   }
   // backface-visibility: hidden;
   // transition: transform 1s $easeOutCirc;

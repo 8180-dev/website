@@ -1,6 +1,38 @@
 <template>
   <div class="the-hero">
     <div ref="bg" class="th__bg" />
+    <div class="th__video-area">
+      <video
+        class="th__video"
+        muted
+        playsinline
+        autoplay
+        loop
+        crossOrigin="anonymous"
+        :poster="require(`~/assets/video/202005_stillimage.jpg`)"
+      >
+        <source
+          v-if="$mq !== 'desktop'"
+          :src="require(`~/assets/video/202005.webm`)"
+          type="video/webm"
+        />
+        <source
+          v-else
+          :src="require(`~/assets/video/202005_750.webm`)"
+          type="video/webm"
+        />
+        <source
+          v-if="$mq !== 'desktop'"
+          :src="require(`~/assets/video/202005.mp4`)"
+          type="video/mp4"
+        />
+        <source
+          v-else
+          :src="require(`~/assets/video/202005_750.mp4`)"
+          type="video/mp4"
+        />
+      </video>
+    </div>
 
     <div class="th__line" />
     <div class="th__overlay" />
@@ -17,16 +49,6 @@
     </mq-layout>
 
     <div class="th__bottom">
-      <div class="th__title">
-        <a
-          :href="`/works/#${ids[current]}`"
-          :data-id="ids[current]"
-          @click.prevent="moveWorksPage(ids[current])"
-        >
-          <HeroTitle :text="titles[current]" />
-        </a>
-      </div>
-
       <div class="th__button th__button--news">
         <a v-scroll-to="`#news`" href="#">
           <HeroButton :text="`ニュース`" />
@@ -38,16 +60,12 @@
 </template>
 
 <script>
-import DistortionSlider from 'Js/DistortionSlider'
-import { pause } from 'Js/animation'
 import HeroLogo from '~/components/HeroLogo'
 import HeroButton from '~/components/HeroButton'
-import HeroTitle from '~/components/HeroTitle'
 
 export default {
   name: 'TheHero',
   components: {
-    HeroTitle,
     HeroButton,
     HeroLogo,
     //
@@ -61,15 +79,7 @@ export default {
   },
 
   computed: {
-    posts() {
-      return this.$store.getters['post/getPostsHero']
-    },
-    titles() {
-      return this.posts.map(post => post.title)
-    },
-    ids() {
-      return this.posts.map(post => post.id)
-    },
+    //
   },
 
   watch: {
@@ -82,53 +92,16 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      this.initSlider()
+      // this.initSlider()
     })
   },
 
   beforeDestroy() {
-    this.DistortionSlider.destroy()
+    //
   },
 
   methods: {
-    async initSlider() {
-      const { bg } = this.$refs
-      const images = [
-        require('Images/dummy/1.jpg'),
-        require('Images/dummy/2.jpg'),
-        require('Images/dummy/3.jpg'),
-      ]
-      const texture = require('Images/texture/01.jpg')
-      const deep = 0.1
-      const speed = 2.5
-      const current = 0
-      const transitionEnd = this.updateCount.bind(this)
-
-      // これで レスポンスの画像の最初の1枚を抽出して選びとる
-      // const imagesPath = this.posts.map(post => post.acf.images[0].image)
-      // const images = await LoadImages(imagesPath)
-      //      console.log(images)
-
-      this.DistortionSlider = new DistortionSlider({
-        target: bg,
-        images,
-        texture,
-        deep,
-        speed,
-        current,
-        transitionEnd,
-      })
-      await pause(1)
-      this.DistortionSlider.start()
-    },
-    updateCount(val) {
-      this.current = val
-    },
-    moveWorksPage(name) {
-      this.$store.dispatch('setModalName', name)
-      this.$store.dispatch('setModalOpen', true)
-      this.$router.push(`/works/`)
-    },
+    //
   },
 }
 </script>
@@ -136,6 +109,7 @@ export default {
 <style lang="scss" scoped>
 .the-hero {
   position: relative;
+  z-index: 1;
   height: calc(var(--vh, 1vh) * 100);
   //
   @include desktop {
@@ -149,14 +123,35 @@ export default {
   @include overlay;
 }
 
+.th__video-area {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.th__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .th__line {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 6;
   background-image: linear-gradient($color-gray-level4 0.5px, transparent 0),
     linear-gradient(90deg, $color-gray-level4 0.5px, transparent 0);
   background-size: calc(100vw / 5) calc(var(--vh, 1vh) * 100 / 7);
   opacity: 0.2;
-  //
-  @include overlay;
   //
   @include desktop {
     background-image: linear-gradient($color-gray-level4 1px, transparent 0),
@@ -166,16 +161,19 @@ export default {
 }
 
 .th__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 5;
   background-color: $color-black-dark;
   // mix-blend-mode: multiply;
   opacity: 0.35;
-  //
-  @include overlay;
 }
 
 .th__logo {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   z-index: 9;
@@ -184,8 +182,8 @@ export default {
   transform: translate(-50%, -50%);
   //
   @include desktop {
-    width: calc(100vw * 637 / 1920);
-    height: calc(100vw * 286 / 1920);
+    width: calc(100vw * 637 / 1920 * 0.8);
+    height: calc(100vw * 286 / 1920 * 0.8);
   }
 }
 
