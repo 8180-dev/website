@@ -85,7 +85,7 @@ module.exports = {
     [
       '@uto-usui/nuxt-google-gtag',
       {
-        id: 'UA-23679855-1',
+        id: 'UA-165344069-1',
         config: {
           send_page_view: true,
           custom_map: {
@@ -280,9 +280,9 @@ module.exports = {
     ],
   },
   manifest: {
-    name: 'NARRATIVE',
+    name: '8180',
     lang: 'ja',
-    start_url: '/vol34-narrative-and-deployment/',
+    start_url: '/',
     display: 'standalone',
   },
 }
