@@ -2,9 +2,8 @@
 export default {
   async fetch({ app, store }) {
     const query = {
-      // type: 'works',
-      //      custom_per_page: 1,
-      //      _embed: 1,
+      type: 'works',
+      custom_per_page: 200,
     }
     if (store.getters['post/getPosts'][0]) {
       return false
