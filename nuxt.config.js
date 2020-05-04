@@ -234,11 +234,11 @@ module.exports = {
   },
 
   workbox: {
-    cachingExtensions: '~/plugins/workbox-range-request.js',
+    // cachingExtensions: '~/plugins/workbox-range-request.js',
     runtimeCaching: [
       // video
       {
-        urlPattern: /.*\.(mp4|webm)/,
+        urlPattern: /.*\.mp4/,
         handler: `NetworkOnly`,
       },
       // wp assets
