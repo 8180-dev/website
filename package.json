@@ -10,6 +10,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate:nuxt": "NODE_ENV=production nuxt generate",
+    "generate:test": "NODE_ENV=production BASE_URL=/wp/dist/ nuxt generate",
     "copy": "cpx 'dist/**/*' '../'",
     "clean": "del --force '../_nuxt'",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",

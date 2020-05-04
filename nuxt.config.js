@@ -60,7 +60,7 @@ module.exports = {
    */
   modules: [
     '@nuxtjs/axios',
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-user-agent',
     '@bazzite/nuxt-optimized-images',
@@ -226,7 +226,7 @@ module.exports = {
   },
 
   router: {
-    base: '/',
+    base: process.env.BASE_URL || '/',
   },
 
   generate: {
