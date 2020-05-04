@@ -12,24 +12,16 @@
       >
         <source
           v-if="$mq !== 'desktop'"
-          src="https://wp.8180.co.jp/wp/video/202005.webm"
+          src="/video/202005.webm"
           type="video/webm"
         />
-        <source
-          v-else
-          src="https://wp.8180.co.jp/wp/video/202005_750.webm"
-          type="video/webm"
-        />
+        <source v-else src="/video/202005_750.webm" type="video/webm" />
         <source
           v-if="$mq !== 'desktop'"
-          src="https://wp.8180.co.jp/wp/video/202005.mp4"
+          src="/video/202005.mp4"
           type="video/mp4"
         />
-        <source
-          v-else
-          src="https://wp.8180.co.jp/wp/video/202005_750.mp4"
-          type="video/mp4"
-        />
+        <source v-else src="/video/202005_750.mp4" type="video/mp4" />
       </video>
     </div>
 

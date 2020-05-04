@@ -235,9 +235,14 @@ module.exports = {
 
   workbox: {
     runtimeCaching: [
+      // video
+      {
+        urlPattern: /.*\.mp4/,
+        handler: `NetworkOnly`,
+      },
       // wp assets
       {
-        urlPattern: `/wp-content/.*`,
+        urlPattern: `https://wp.8180.co.jp/wp/wp-content/uploads/.*`,
         handler: 'cacheFirst',
         method: 'GET',
         strategyOptions: {
