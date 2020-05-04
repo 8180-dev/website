@@ -12,16 +12,24 @@
       >
         <source
           v-if="$mq !== 'desktop'"
-          src="/video/202005.webm"
+          :src="require(`~/assets/video/202005.webm`)"
           type="video/webm"
         />
-        <source v-else src="/video/202005_750.webm" type="video/webm" />
+        <source
+          v-else
+          :src="require(`~/assets/video/202005_750.webm`)"
+          type="video/webm"
+        />
         <source
           v-if="$mq !== 'desktop'"
-          src="/video/202005.mp4"
+          :src="require(`~/assets/video/202005.mp4`)"
           type="video/mp4"
         />
-        <source v-else src="/video/202005_750.mp4" type="video/mp4" />
+        <source
+          v-else
+          :src="require(`~/assets/video/202005_750.mp4`)"
+          type="video/mp4"
+        />
       </video>
     </div>
 
@@ -75,21 +83,7 @@ export default {
   },
 
   watch: {
-    videoActive(val) {
-      if (val) {
-        console.log('this.$refs.video', this.$refs.video)
-        this.$refs.video.addEventListener('canplay', e => {
-          console.log(e)
-          this.$refs.video.play()
-        })
-
-        this.$refs.video.addEventListener('canplaythrough', e => {
-          console.log(e)
-          this.$refs.video.play()
-        })
-        this.$refs.video.play()
-      }
-    },
+    //
   },
 
   created() {
@@ -99,6 +93,14 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.videoActive = true
+
+      console.log('this.$refs.video', this.$refs.video)
+
+      this.$refs.video.addEventListener('canplaythrough', e => {
+        console.log(e)
+        this.$refs.video.play()
+      })
+      this.$refs.video.play()
     })
   },
 

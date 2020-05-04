@@ -60,7 +60,7 @@ module.exports = {
    */
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-user-agent',
     '@bazzite/nuxt-optimized-images',
@@ -234,6 +234,7 @@ module.exports = {
   },
 
   workbox: {
+    cachingExtensions: '~/plugins/workbox-range-request.js',
     runtimeCaching: [
       // video
       {
@@ -242,7 +243,7 @@ module.exports = {
       },
       // wp assets
       {
-        urlPattern: `https://wp.8180.co.jp/wp/wp-content/uploads/.*`,
+        urlPattern: `https://wp.8180.co.jp/wp/wp-content/uploads//.*`,
         handler: 'cacheFirst',
         method: 'GET',
         strategyOptions: {
