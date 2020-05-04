@@ -238,7 +238,7 @@ module.exports = {
     runtimeCaching: [
       // video
       {
-        urlPattern: /.*\.mp4/,
+        urlPattern: /.*\.(mp4|webm)/,
         handler: `NetworkOnly`,
       },
       // wp assets
