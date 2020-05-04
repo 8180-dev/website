@@ -33,9 +33,12 @@
           type="video/mp4"
         />
       </video>
-      <div class="th__loading" :class="[{ 'is-active': !play }]">
+    </div>
+
+    <div class="th__loading" :class="[{ 'is-disable': play }]">
+      <span>
         ビデオローディング ...
-      </div>
+      </span>
     </div>
 
     <div class="th__line" />
@@ -169,10 +172,10 @@ export default {
   position: absolute;
   right: calc(50%);
   bottom: 60px;
+  z-index: 9;
   font-size: 1.6rem;
   font-weight: $font-weight-plus-e-bold;
   color: $color-white;
-  opacity: 0;
   transition: opacity 0.6s $easeOutSine;
 
   @include touch {
@@ -184,7 +187,11 @@ export default {
     bottom: calc(100vh / 9 * 1 - 1em / 2);
   }
 
-  &.is-active {
+  &.is-disable {
+    opacity: 0;
+  }
+
+  span {
     animation: flash 0.15s infinite;
   }
 }
