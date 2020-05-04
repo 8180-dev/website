@@ -3,13 +3,12 @@
     <div ref="bg" class="th__bg" />
     <div class="th__video-area">
       <video
+        ref="video"
         class="th__video"
         muted
         playsinline
-        autoplay
         loop
         crossOrigin="anonymous"
-        :poster="require(`~/assets/video/202005_stillimage.jpg`)"
       >
         <source
           v-if="$mq !== 'desktop'"
@@ -75,6 +74,7 @@ export default {
     return {
       current: 0,
       DistortionSlider: null,
+      videoActive: false,
     }
   },
 
@@ -83,7 +83,21 @@ export default {
   },
 
   watch: {
-    //
+    videoActive(val) {
+      if (val) {
+        console.log('this.$refs.video', this.$refs.video)
+        this.$refs.video.addEventListener('canplay', e => {
+          console.log(e)
+          this.$refs.video.play()
+        })
+
+        this.$refs.video.addEventListener('canplaythrough', e => {
+          console.log(e)
+          this.$refs.video.play()
+        })
+        this.$refs.video.play()
+      }
+    },
   },
 
   created() {
@@ -92,7 +106,7 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      // this.initSlider()
+      this.videoActive = true
     })
   },
 
