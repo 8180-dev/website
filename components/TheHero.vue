@@ -11,24 +11,25 @@
         loop
         crossOrigin="anonymous"
         @play="play = true"
+        @pause="play = false"
       >
         <source
-          v-if="$mq !== 'desktop'"
+          v-if="$mq === 'widescreen' || $mq === 'fullhd'"
           :src="require(`~/assets/video/202005.webm`)"
           type="video/webm"
         />
         <source
-          v-else
+          v-if="$mq === 'desktop'"
           :src="require(`~/assets/video/202005_750.webm`)"
           type="video/webm"
         />
         <source
-          v-if="$mq !== 'desktop'"
+          v-if="$mq === 'widescreen' || $mq === 'fullhd'"
           :src="require(`~/assets/video/202005.mp4`)"
           type="video/mp4"
         />
         <source
-          v-else
+          v-if="$mq === 'desktop'"
           :src="require(`~/assets/video/202005_750.mp4`)"
           type="video/mp4"
         />
