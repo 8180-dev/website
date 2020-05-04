@@ -149,8 +149,8 @@ export default {
   padding-bottom: 0.8em;
   font-size: 2.5rem;
   font-weight: $font-weight-plus-e-bold;
-  background-color: rgba($color-black, 0);
-  border: 1px solid rgba($color-gray-level2, 1);
+  background-color: rgba($color-black, 1);
+  // border: 1px solid rgba($color-gray-level2, 1);
   border-radius: 37.5px / 50%;
   transition: background-color 0.2s $easeOutSine, border 0.2s $easeOutSine;
   //
@@ -170,13 +170,6 @@ export default {
   &.tm__target.tm__target:hover {
     background-color: lighten($color-black, 2.5%);
     transition: background-color 0s;
-  }
-
-  .the-menu.is-scroll & {
-    @include desktop {
-      background-color: rgba($color-black, 1);
-      border-color: rgba($color-gray-level2, 0);
-    }
   }
 }
 </style>
