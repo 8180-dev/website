@@ -10,6 +10,7 @@
         playsinline
         loop
         crossOrigin="anonymous"
+        @play="play = true"
       >
         <source
           v-if="$mq !== 'desktop'"
@@ -77,8 +78,6 @@ export default {
   data() {
     return {
       current: 0,
-      DistortionSlider: null,
-      videoActive: false,
       play: false,
     }
   },
@@ -97,17 +96,6 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      this.videoActive = true
-
-      console.log('this.$refs.video', this.$refs.video)
-
-      this.$refs.video.addEventListener('play', _e => {
-        this.play = true
-      })
-      this.$refs.video.addEventListener('canplaythrough', e => {
-        console.log(e)
-        this.$refs.video.play()
-      })
       this.$refs.video.play()
     })
   },
