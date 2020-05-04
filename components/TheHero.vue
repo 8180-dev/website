@@ -5,6 +5,7 @@
       <video
         ref="video"
         class="th__video"
+        :class="[{ 'is-active': play }]"
         muted
         playsinline
         loop
@@ -31,6 +32,9 @@
           type="video/mp4"
         />
       </video>
+      <div class="th__loading" :class="[{ 'is-active': !play }]">
+        ビデオローディング ...
+      </div>
     </div>
 
     <div class="th__line" />
@@ -75,6 +79,7 @@ export default {
       current: 0,
       DistortionSlider: null,
       videoActive: false,
+      play: false,
     }
   },
 
@@ -96,6 +101,9 @@ export default {
 
       console.log('this.$refs.video', this.$refs.video)
 
+      this.$refs.video.addEventListener('play', _e => {
+        this.play = true
+      })
       this.$refs.video.addEventListener('canplaythrough', e => {
         console.log(e)
         this.$refs.video.play()
@@ -126,9 +134,23 @@ export default {
 }
 
 .th__bg {
-  z-index: 1;
-  //
+  z-index: 5;
+  background: transparent;
+  background-image: radial-gradient($color-black 30%, rgba($color-black, 0) 0),
+    radial-gradient($color-black 30%, rgba($color-black, 0) 0);
+  background-position: 0 0, 2px 2px;
+  background-size: 4px 4px;
+  opacity: 0.8;
+
   @include overlay;
+
+  @include desktop {
+    background-image: radial-gradient($color-black 35%, rgba($color-black, 0) 0),
+      radial-gradient($color-black 35%, rgba($color-black, 0) 0);
+    background-position: 0 0, 2px 2px;
+    background-size: 4px 4px;
+    opacity: 0.9;
+  }
 }
 
 .th__video-area {
@@ -147,6 +169,36 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  //
+  &.is-active {
+    opacity: 1;
+    transition: opacity 0.6s $easeInOutSine;
+  }
+}
+
+.th__loading {
+  position: absolute;
+  right: calc(50%);
+  bottom: 60px;
+  font-size: 1.6rem;
+  font-weight: $font-weight-plus-e-bold;
+  color: $color-white;
+  opacity: 0;
+  transition: opacity 0.6s $easeOutSine;
+
+  @include touch {
+    transform: translateX(50%);
+  }
+
+  @include desktop {
+    right: $section-gutter-desktop;
+    bottom: calc(100vh / 9 * 1 - 1em / 2);
+  }
+
+  &.is-active {
+    animation: flash 0.15s infinite;
+  }
 }
 
 .th__line {
