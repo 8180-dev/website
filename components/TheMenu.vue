@@ -150,9 +150,12 @@ export default {
   font-size: 2.5rem;
   font-weight: $font-weight-plus-e-bold;
   background-color: rgba($color-black, 1);
-  // border: 1px solid rgba($color-gray-level2, 1);
   border-radius: 37.5px / 50%;
   transition: background-color 0.2s $easeOutSine, border 0.2s $easeOutSine;
+  //
+  @include touch {
+    border: 1px solid rgba($color-gray-level2, 1);
+  }
   //
   @include desktop {
     width: 105px;
