@@ -1,42 +1,14 @@
 <template>
   <div class="the-hero">
     <div ref="bg" class="th__bg" />
+
     <div class="th__video-area">
-      <video
-        ref="video"
-        class="th__video"
-        :class="[{ 'is-active': play }]"
-        muted
-        playsinline
-        loop
-        crossOrigin="anonymous"
-        @play="play = true"
-        @pause="play = false"
-      >
-        <source
-          v-if="$mq === 'widescreen' || $mq === 'fullhd'"
-          :src="require(`~/assets/video/202005.webm`)"
-          type="video/webm"
-        />
-        <source
-          v-if="$mq === 'desktop'"
-          :src="require(`~/assets/video/202005_750.webm`)"
-          type="video/webm"
-        />
-        <source
-          v-if="$mq === 'widescreen' || $mq === 'fullhd'"
-          :src="require(`~/assets/video/202005.mp4`)"
-          type="video/mp4"
-        />
-        <source
-          v-if="$mq === 'desktop'"
-          :src="require(`~/assets/video/202005_750.mp4`)"
-          type="video/mp4"
-        />
-      </video>
+      <div class="th__video" :style="videoStyle">
+        <YoutubePlayer :video-id="`BBechWK3VwY`" />
+      </div>
     </div>
 
-    <div class="th__loading" :class="[{ 'is-disable': play }]">
+    <div v-if="false" class="th__loading" :class="[{ 'is-disable': play }]">
       <span>
         ビデオローディング ...
       </span>
@@ -70,13 +42,14 @@
 <script>
 import HeroLogo from '~/components/HeroLogo'
 import HeroButton from '~/components/HeroButton'
+import YoutubePlayer from '~/components/YoutubePlayer'
 
 export default {
   name: 'TheHero',
   components: {
     HeroButton,
     HeroLogo,
-    //
+    YoutubePlayer,
   },
 
   data() {
@@ -87,7 +60,27 @@ export default {
   },
 
   computed: {
-    //
+    videoStyle() {
+      const aspect = {
+        v: this.$store.getters.getPageHeight / 9,
+        h: this.$store.getters.getPageWidth / 16,
+      }
+
+      const size = {
+        width: '',
+        height: '',
+      }
+
+      if (aspect.v > aspect.h) {
+        size.height = this.$store.getters.getPageHeight + 'px'
+        size.width = aspect.v * 16 + 'px'
+      } else {
+        size.width = this.$store.getters.getPageWidth + 'px'
+        size.height = aspect.h * 9 + 'px'
+      }
+
+      return size
+    },
   },
 
   watch: {
@@ -100,7 +93,7 @@ export default {
 
   mounted() {
     this.$nextTick(() => {
-      this.$refs.video.play()
+      // this.$refs.video.play()
     })
   },
 
@@ -156,16 +149,18 @@ export default {
 
 .th__video {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0;
+  transform: translate(-50%, -50%);
   //
-  &.is-active {
-    opacity: 1;
-    transition: opacity 0.6s $easeInOutSine;
+  /deep/ iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 

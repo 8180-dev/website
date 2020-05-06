@@ -1,22 +1,18 @@
 <template>
   <div class="modal-video">
     <div class="mv__inner" :data-youtube-id="videoId">
-      <client-only>
-        <youtube
-          ref="youtube"
-          :player-vars="playerVars"
-          :video-id="videoId"
-          @playing="playing"
-          @paused="paused"
-        />
-      </client-only>
+      <YoutubePlayer :video-id="videoId" />
     </div>
   </div>
 </template>
 
 <script>
+import YoutubePlayer from '~/components/YoutubePlayer'
+
 export default {
   name: 'ModalVideo',
+
+  components: { YoutubePlayer },
 
   props: {
     videoId: {
@@ -27,28 +23,16 @@ export default {
 
   data() {
     return {
-      playerVars: {
-        autoplay: 1,
-      },
+      //
     }
   },
 
   computed: {
-    player() {
-      return this.$refs.youtube.player
-    },
+    //
   },
 
   methods: {
-    playVideo() {
-      this.player.playVideo()
-    },
-    playing() {
-      // console.log('\o/ we are watching!!!')
-    },
-    paused() {
-      //
-    },
+    //
   },
 }
 </script>
