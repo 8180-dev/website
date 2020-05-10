@@ -4,7 +4,7 @@
 
     <div class="th__video-area">
       <div class="th__video" :style="videoStyle">
-        <YoutubePlayer :video-id="`BBechWK3VwY`" />
+        <YoutubePlayer :video-id="`eT6LHbdS0f0`" />
       </div>
     </div>
 
