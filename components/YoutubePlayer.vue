@@ -49,6 +49,10 @@ export default {
 
   mounted() {
     this.player.addEventListener('onStateChange', this.onStateChange)
+    this.player.addEventListener(
+      'onPlaybackQualityChange',
+      this.onPlaybackQualityChange,
+    )
   },
 
   methods: {
@@ -64,6 +68,14 @@ export default {
     onReady() {
       console.log('onReady')
 
+      const size =
+        this.$mq === 'desktop'
+          ? 'large'
+          : this.$mq === 'widescreen' || this.$mq === 'fullhd'
+          ? 'hd1080'
+          : 'default'
+      console.log('size', size, this.player.getAvailableQualityLevels())
+      this.player.setPlaybackQuality(size)
       this.player.mute()
       this.player.playVideo()
     },
@@ -82,6 +94,9 @@ export default {
       if (event.data === 0) {
         this.player.playVideo()
       }
+    },
+    onPlaybackQualityChange(data) {
+      console.log(data)
     },
   },
 }
