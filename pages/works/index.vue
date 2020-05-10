@@ -2,6 +2,10 @@
   <Wrapper class="page-works">
     <div class="pw__title">
       <TitleLevel1 :variation="`works`" />
+
+      <p class="pw__note">
+        制作実績について、掲載に問題がある場合は、お問い合わせのメールアドレスまでご連絡頂けると幸いです。
+      </p>
     </div>
     <WorksList />
   </Wrapper>
@@ -69,6 +73,21 @@ export default {
   //
   @include desktop {
     margin-bottom: 180px;
+  }
+}
+
+.pw__note {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: $color-gray-level2;
+  letter-spacing: 0.05em;
+
+  @include desktop {
+    margin-top: 45px;
+    font-size: 1.2rem;
   }
 }
 </style>
