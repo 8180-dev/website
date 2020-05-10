@@ -5,7 +5,8 @@
  */
 const meta = {
   title: '8180',
-  description: '8180 official site.',
+  description:
+    '株式会社ハイパーボールは2018年5月に設立したアニメーションに特化した映像制作会社です。Hyperboleとは「8180」と書いて「ハイパーボール」と読みます。意味は「誇張、大げさな表現」',
   keywords: '8180',
   img: 'https://8180.co.jp/ogp.png',
   ogType: 'website',
