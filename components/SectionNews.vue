@@ -11,7 +11,7 @@
         </div>
         <ul class="sn__items">
           <li
-            v-for="(item, index) in filteredList"
+            v-for="(item, index) in list"
             :key="`sn__item${index}`"
             class="sn__item"
           >
@@ -51,7 +51,9 @@ export default {
   mounted() {
     this.$nextTick(async () => {
       const { data } = await axios.get(
-        'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ftwitrss.me%2Ftwitter_user_to_rss%2F?user=8180_Inc',
+        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURI(
+          'http://fetchrss.com/rss/5ee9905e8a93f8052f8b45675ee9904c8a93f8d42d8b4567.atom',
+        )}`,
       )
       this.list = data.items
       console.log(this.list)
@@ -160,6 +162,7 @@ export default {
   //
   /deep/ img {
     width: 100%;
+    height: auto;
     margin-top: 10px;
     border-radius: 15px;
 
@@ -174,6 +177,10 @@ export default {
     margin-right: 2px;
     margin-left: 2px;
     vertical-align: middle;
+  }
+
+  /deep/ span {
+    display: none;
   }
 }
 </style>
