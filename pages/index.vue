@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       posts: [],
-      title: 'HOME｜8180',
+      title: 'HOME｜8180/株式会社ハイパーボール/Hyperbole Inc.',
     }
   },
 

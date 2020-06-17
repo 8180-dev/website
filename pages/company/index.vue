@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       posts: [],
-      title: 'Company｜8180',
+      title: 'Company｜8180/株式会社ハイパーボール/Hyperbole Inc.',
     }
   },
 
