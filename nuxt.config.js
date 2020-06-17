@@ -60,6 +60,7 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
+    '@nuxtjs/sitemap',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
@@ -102,6 +103,11 @@ module.exports = {
       },
     ],
   ],
+
+  sitemap: {
+    hostname: 'http://8180.co.jp',
+    gzip: true,
+  },
 
   /**
    * media query breakpoint
