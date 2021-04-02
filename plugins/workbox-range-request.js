@@ -1,15 +1,9 @@
-import { registerRoute } from 'workbox-routing'
-import { CacheFirst } from 'workbox-strategies'
-import { CacheableResponsePlugin } from 'workbox-cacheable-response'
-import { RangeRequestsPlugin } from 'workbox-range-requests'
-
-registerRoute(
-  /.*\.mp4/,
-  new CacheFirst({
-    cacheName: 'your-cache-name-here',
+workbox.routing.registerRoute(
+  /.*\.(mp4|webm)/,
+  new workbox.strategies.CacheFirst({
     plugins: [
-      new CacheableResponsePlugin({ statuses: [200] }),
-      new RangeRequestsPlugin(),
+      new workbox.cacheableResponse.CacheableResponse({ statuses: [200] }),
+      new workbox.rangeRequests.RangeRequestsPlugin(),
     ],
   }),
 )
