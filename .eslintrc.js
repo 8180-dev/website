@@ -15,12 +15,8 @@ module.exports = {
     'plugin:nuxt/recommended',
     'plugin:prettier/recommended',
     'prettier',
-    'prettier/vue',
   ],
-  plugins: [
-    'prettier',
-    '@typescript-eslint',
-  ],
+  plugins: ['prettier', '@typescript-eslint'],
   // add your custom rules here
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -28,8 +24,6 @@ module.exports = {
     'nuxt/no-cjs-in-config': 'off',
     'no-unused-vars': 'off',
     'no-unused-expressions': 'off',
-    'vue/no-v-html': [
-      'off',
-    ],
+    'vue/no-v-html': ['off'],
   },
 }

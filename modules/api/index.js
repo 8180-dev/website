@@ -8,7 +8,7 @@ module.exports = function Api(_moduleOptions) {
     ? Object.assign(
         {},
         require(_moduleOptions.config.replace(/^(@|~)/, process.cwd())),
-        _moduleOptions
+        _moduleOptions,
       )
     : _moduleOptions
   const options = Object.assign({}, this.options.api, moduleOptions)
@@ -27,13 +27,13 @@ module.exports = function Api(_moduleOptions) {
   this.addPlugin({
     src: path.resolve(__dirname, 'plugins/api.template.js'),
     fileName: 'api.js',
-    options
+    options,
   })
 
   /* eslint-disable no-console */
   debug(
     `BaseURL: ${chalk.green(options.baseURL)} (Browser: ${chalk.green(
-      options.browserBaseURL
-    )})`
+      options.browserBaseURL,
+    )})`,
   )
 }

@@ -35,7 +35,7 @@ Vue.component('LazyImage', {})
 Vue.component('GMap', {})
 Vue.component('GMapMarker', {})
 Vue.component('ClientOnly', {})
-Vue.component('youtube', {})
+Vue.component('Youtube', {})
 
 System.config({
   paths: {
