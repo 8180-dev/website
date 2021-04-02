@@ -76,7 +76,12 @@ export default {
 
 .sn__inner {
   padding-right: $section-gutter-mobile;
+  padding-bottom: 60px;
   padding-left: $section-gutter-mobile;
+
+  @include desktop {
+    padding-bottom: 100px;
+  }
 }
 
 .sn__title {
@@ -88,7 +93,6 @@ export default {
 }
 
 .sn__box {
-  padding-bottom: 30px;
   color: $color-white;
   text-align: left;
   border-radius: 20px;
