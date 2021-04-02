@@ -4,7 +4,9 @@ const StylelintPlugin = require('stylelint-webpack-plugin')
 const apiUrl = `https://wp.8180.co.jp/wp-json/wp/v2/`
 
 module.exports = {
-  mode: 'universal',
+  target: 'static',
+
+  buildModules: ['@aceforth/nuxt-optimized-images', '@nuxtjs/style-resources'],
 
   /*
    ** Headers of the page
@@ -65,7 +67,6 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-user-agent',
-    '@bazzite/nuxt-optimized-images',
     'nuxt-mq',
     'cookie-universal-nuxt',
     'nuxt-webfontloader',
