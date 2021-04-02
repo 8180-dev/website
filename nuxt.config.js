@@ -65,7 +65,6 @@ module.exports = {
     '@nuxtjs/sitemap',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources',
     'nuxt-user-agent',
     'nuxt-mq',
     'cookie-universal-nuxt',
@@ -251,7 +250,7 @@ module.exports = {
       },
       // wp assets
       {
-        urlPattern: `https://wp.8180.co.jp/wp/wp-content/uploads//.*`,
+        urlPattern: `https://wp.8180.co.jp/wp/wp-content/uploads/.*`,
         handler: 'cacheFirst',
         method: 'GET',
         strategyOptions: {
