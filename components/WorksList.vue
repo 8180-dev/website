@@ -2,7 +2,7 @@
   <div class="works-list">
     <ul class="wl__items">
       <li
-        v-for="(item, index) in $store.getters['post/getPosts']"
+        v-for="(item, index) in items"
         :key="`wl__item${index}`"
         class="wl__item"
       >
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { orderBy } from 'Js/array'
 import WorksCard from '~/components/WorksCard'
 
 export default {
@@ -33,6 +34,12 @@ export default {
     list: {
       type: Array,
       default: () => [],
+    },
+  },
+
+  computed: {
+    items() {
+      return orderBy(this.$store.getters['post/getPosts'], ['order'], ['desc'])
     },
   },
 }

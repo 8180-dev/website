@@ -58,6 +58,7 @@ module.exports = {
         title: 'title.rendered',
         date: 'date',
         acf: 'acf',
+        order: 'acf.order',
       },
     },
     page: {
