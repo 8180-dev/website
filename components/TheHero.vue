@@ -4,7 +4,9 @@
 
     <div class="th__video-area">
       <div class="th__video" :style="videoStyle">
-        <YoutubePlayer :video-id="`eT6LHbdS0f0`" />
+        <client-only>
+          <YoutubePlayer :video-id="`eT6LHbdS0f0`" />
+        </client-only>
       </div>
     </div>
 
@@ -66,17 +68,19 @@ export default {
         h: this.$store.getters.getPageWidth / 16,
       }
 
+      const scale = 1.08
+
       const size = {
         width: '',
         height: '',
       }
 
       if (aspect.v > aspect.h) {
-        size.height = this.$store.getters.getPageHeight + 'px'
-        size.width = aspect.v * 16 + 'px'
+        size.width = aspect.v * 16 * scale + 'px'
+        size.height = this.$store.getters.getPageHeight * scale + 'px'
       } else {
-        size.width = this.$store.getters.getPageWidth + 'px'
-        size.height = aspect.h * 9 + 'px'
+        size.width = this.$store.getters.getPageWidth * scale + 'px'
+        size.height = aspect.h * 9 * scale + 'px'
       }
 
       return size
@@ -119,6 +123,9 @@ export default {
 }
 
 .th__bg {
+  @include overlay;
+
+  position: fixed;
   z-index: 5;
   background: transparent;
   background-image: radial-gradient($color-black 30%, rgba($color-black, 0) 0),
@@ -126,8 +133,6 @@ export default {
   background-position: 0 0, 2px 2px;
   background-size: 4px 4px;
   opacity: 0.8;
-
-  @include overlay;
 
   @include desktop {
     background-image: radial-gradient($color-black 35%, rgba($color-black, 0) 0),
