@@ -70,7 +70,7 @@ export default {
   padding-bottom: calc(100% * 420 / 700 / 2);
   overflow: hidden;
   opacity: 0.8;
-  transition: 0.3s $easeOutSine;
+  transition: opacity 0.3s $easeOutSine;
   //
   .works-card:hover & {
     opacity: 1;
@@ -80,6 +80,12 @@ export default {
 .wc__figure {
   @include bg-cover;
   @include overlay;
+
+  transition: transform 0.3s $easeOutSine;
+
+  .works-card:hover & {
+    transform: scale(1.08);
+  }
 }
 
 .wc__caption {

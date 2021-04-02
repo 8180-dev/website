@@ -68,12 +68,12 @@ export default {
   display: block;
   background-color: $color-black;
   box-shadow: 0 0 50px rgba(black, 0.2);
-  transition: 0.25s $easeInOutSine;
+  transition: transform 0.3s $easeInOutSine, box-shadow 0.3s $easeInOutSine;
   //
   &:hover {
     background-color: lighten($color-black, 0.5%);
-    box-shadow: 0 20px 80px rgba($color-black-dark, 0.9);
-    transform: translateY(-5px);
+    box-shadow: 0 20px 80px rgba(black, 0.5);
+    transform: translateY(-10px);
   }
 }
 </style>
