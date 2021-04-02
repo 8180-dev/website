@@ -1,6 +1,6 @@
 <script>
 export default {
-  async fetch({ app, store }) {
+  async asyncData({ app, store }) {
     const query = {
       type: 'works',
       custom_per_page: 200,
