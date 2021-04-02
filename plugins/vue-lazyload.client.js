@@ -2,11 +2,11 @@ import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueLazyload, {
-  preLoad: 1,
+  preLoad: 1.5,
   attempt: 1,
   observer: true,
   observerOptions: {
-    rootMargin: '200%',
-    threshold: 0.01,
+    rootMargin: '500px 500px 500px 500px',
+    threshold: 0,
   },
 })
