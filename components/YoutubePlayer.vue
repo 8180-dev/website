@@ -6,7 +6,6 @@
     @playing="playing"
     @paused="paused"
     @ready="onReady"
-    @stateChange="onStateChange"
   />
 </template>
 
@@ -42,7 +41,6 @@ export default {
 
   computed: {
     player() {
-      console.log('this.$refs.youtube', this.$refs.youtube)
       return this.$refs.youtube && this.$refs.youtube.player
     },
   },
