@@ -14,7 +14,7 @@
       <div class="sa__caption">
         <p class="sa__address">
           株式会社ハイパーボール ／ Hyperbole Inc. <br />
-          168-0074 東京都杉並区上高井戸1-2-4ポルトメウス307 <br />
+          168-0074 東京都杉並区上高井戸1-2-4ポルトメウス401 <br />
           TEL : 03-5357-8228
         </p>
         <p class="sa__copy">COPYRIGHTS © Hyperbole. All Rights Reserved.</p>
