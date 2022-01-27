@@ -1807,7 +1807,7 @@
   dependencies:
     http-proxy-middleware "^1.0.6"
 
-"@nuxtjs/pwa@^3.0.0-beta.16":
+"@nuxtjs/pwa@^3.3.5":
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/@nuxtjs/pwa/-/pwa-3.3.5.tgz#db7c905536ebe8a464a347b6ae3215810642c044"
   integrity sha512-8tTmW8DBspWxlJwTimOHTkwfkwPpL9wIcGmy75Gcmin+c9YtX2Ehxmhgt/TLFOC9XsLAqojqynw3/Agr/9OE1w==
@@ -14474,10 +14474,10 @@ thread-loader@^3.0.1:
     loader-utils "^2.0.0"
     neo-async "^2.6.2"
 
-three@^0.127.0:
-  version "0.127.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.127.0.tgz#c463f4d41b2c735dcf8e9e51a388815e80cd3791"
-  integrity sha512-wtgrn+mhYUbobxT7QN3GPdu3SRpSBQvwY6uOzLChWS7QE//f7paDU/+wlzbg+ngeIvBBqjBHSRuywTh8A99Jng==
+three@^0.137.0:
+  version "0.137.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.137.0.tgz#0ebd6ba66637a332c31f234bcdd35aeec071a6e3"
+  integrity sha512-rzSDhia6cU35UCy6y+zEEws6vSgytfHqFMSaBvUcySgzwvDO6vETyswtSNi/+aVqJw8WLMwyT1mlQQ1T/dxxOA==
 
 throat@^4.0.0:
   version "4.1.0"
