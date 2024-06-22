@@ -9,27 +9,26 @@
         <div class="sn__twitter">
           <a href="https://twitter.com/8180_Inc" target="_blank">@8180_Inc</a>
         </div>
-        <ul class="sn__items">
-          <li
-            v-for="(item, index) in list"
-            :key="`sn__item${index}`"
-            class="sn__item"
+
+        <div class="">
+          <a
+            class="twitter-timeline"
+            data-theme="dark"
+            href="https://twitter.com/8180_Inc?ref_src=twsrc%5Etfw"
+            >Tweets by 8180_Inc</a
           >
-            <a class="sn__target" :href="item.link" target="_blank">
-              <time class="sn__time" :datatime="item.pubDate">{{
-                item.pubDate
-              }}</time>
-            </a>
-            <div class="sn__content" v-html="item.content"></div>
-          </li>
-        </ul>
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import axios from 'axios'
 import TitleLevel1 from '~/components/TitleLevel1'
 
 export default {
@@ -42,23 +41,9 @@ export default {
     }
   },
 
-  computed: {
-    filteredList() {
-      return [...this.list.filter(item => item.author === '(@8180_Inc)')]
-    },
-  },
+  computed: {},
 
-  mounted() {
-    this.$nextTick(async () => {
-      const { data } = await axios.get(
-        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURI(
-          'http://fetchrss.com/rss/5ee9905e8a93f8052f8b45675ee9904c8a93f8d42d8b4567.atom',
-        )}`,
-      )
-      this.list = data.items
-      console.log(this.list)
-    })
-  },
+  mounted() {},
 }
 </script>
 
@@ -163,6 +148,7 @@ export default {
   /deep/ .u-hidden {
     display: none;
   }
+
   //
   /deep/ img {
     width: 100%;
@@ -174,6 +160,7 @@ export default {
       margin-top: 20px;
     }
   }
+
   //
   /deep/ .Emoji {
     width: 12px;
