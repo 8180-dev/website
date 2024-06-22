@@ -45,7 +45,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['swiper/dist/css/swiper.css'],
+  css: [],
 
   /*
    ** Plugins to load before mounting the App
@@ -53,7 +53,6 @@ module.exports = {
   plugins: [
     '~plugins/vue-lazyload.client.js',
     '~plugins/console.js',
-    '~plugins/vue-swiper.client.js',
     '~plugins/vue-youtube.client.js',
     '~plugins/routerOption.js',
   ],
