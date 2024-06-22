@@ -4,6 +4,9 @@
   "description": "8180 web site",
   "author": "uto-usui",
   "private": true,
+  "engines": {
+    "node": "11.15.0"
+  },　
   "scripts": {
     "dev:dev": "NODE_ENV=development PORT=8080 HOST=0.0.0.0 nuxt dev -o",
     "dev:prod": "NODE_ENV=production PORT=8080 HOST=0.0.0.0 nuxt dev -o",
