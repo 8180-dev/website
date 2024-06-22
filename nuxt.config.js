@@ -29,12 +29,6 @@ module.exports = {
       { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon-precomposed', href: '/apple-touch-icon.png' },
     ],
-    script: [
-      {
-        src:
-          'https://cdn.polyfill.io/v2/polyfill.js?features=IntersectionObserver,es6,es7',
-      },
-    ],
   },
 
   /*
